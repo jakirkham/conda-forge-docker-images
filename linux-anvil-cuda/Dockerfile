@@ -7,6 +7,9 @@ LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
 
+# Set path to CUDA install.
+ENV CUDA_HOME /usr/local/cuda
+
 # Add a timestamp for the build. Also, bust the cache.
 ADD http://worldclockapi.com/api/json/utc/now /opt/docker/etc/timestamp
 
