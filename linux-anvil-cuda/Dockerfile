@@ -56,7 +56,7 @@ RUN source /opt/conda/etc/profile.d/conda.sh && \
 RUN source /opt/conda/etc/profile.d/conda.sh && \
     conda activate && \
     conda create -n test --yes --quiet --download-only \
-        defaults::cudatoolkit \
+        defaults::cudatoolkit=${CUDA} \
         defaults::cudnn && \
     conda remove --yes --quiet -n test --all && \
     conda clean -tsy && \
