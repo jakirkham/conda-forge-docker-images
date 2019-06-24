@@ -1,6 +1,6 @@
 ARG CUDA_VER
 
-FROM nvidia/cuda:${CUDA_VER}-devel-centos6
+FROM nvidia/cuda:${CUDA_VER}-devel-centos7
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
@@ -17,7 +17,7 @@ ENV CUDA_HOME /usr/local/cuda
 ADD http://worldclockapi.com/api/json/utc/now /opt/docker/etc/timestamp
 
 # Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 # Remove preinclude system compilers
 RUN rpm -e --nodeps --verbose gcc gcc-c++
