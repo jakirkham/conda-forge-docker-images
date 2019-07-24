@@ -58,6 +58,10 @@ RUN source /opt/conda/etc/profile.d/conda.sh && \
     chgrp -R lucky /opt/conda && \
     chmod -R g=u /opt/conda
 
+# Ensure compilers are discoverable near nvcc.
+RUN ln -s /opt/conda/pkgs/gcc_impl_linux-64-*/bin/x86_64-conda_cos6-linux-gnu-gcc $CUDA_HOME/bin/gcc && \
+    ln -s /opt/conda/pkgs/gxx_impl_linux-64-*/bin/x86_64-conda_cos6-linux-gnu-g++ $CUDA_HOME/bin/g++
+
 # Download and cache CUDA related packages.
 RUN source /opt/conda/etc/profile.d/conda.sh && \
     conda activate && \
