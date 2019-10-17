@@ -1,35 +1,4 @@
-FROM centos:6
-
-LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
-
-# Set an encoding to make things work smoothly.
-ENV LANG en_US.UTF-8
-
-# Add a timestamp for the build. Also, bust the cache.
-ADD http://worldclockapi.com/api/json/utc/now /opt/docker/etc/timestamp
-
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-
-# Install basic requirements.
-COPY scripts/yum_clean_all /opt/docker/bin/
-RUN yum update -y && \
-    yum install -y \
-        bzip2 \
-        sudo \
-        tar \
-        which && \
-    /opt/docker/bin/yum_clean_all
-
-# Run common commands
-COPY scripts/run_commands /opt/docker/bin/run_commands
-RUN /opt/docker/bin/run_commands
-
-# Add a file for users to source to activate the `conda`
-# environment `base`. Also add a file that wraps that for
-# use with the `ENTRYPOINT`.
-COPY linux-anvil-comp7/entrypoint_source /opt/docker/bin/entrypoint_source
-COPY scripts/entrypoint /opt/docker/bin/entrypoint
+FROM condaforge/linux-anvil-comp7
 
 # Start fresh with a scratch image
 # Then copy over the pieces from the previous image that are needed
