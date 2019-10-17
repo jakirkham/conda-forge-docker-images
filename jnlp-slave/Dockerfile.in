@@ -3,7 +3,7 @@ FROM @BASE_IMAGE@
 #
 # Fix a few things for Conda
 RUN { \
-      echo '#!/bin/bash'; \
+      echo '#!/opt/conda/bin/bash'; \
       echo 'set -ex'; \
       echo 'cp /root/.condarc /opt/conda'; \
       echo 'source /etc/profile.d/conda.sh';  \

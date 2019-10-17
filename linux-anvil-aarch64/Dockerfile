@@ -64,4 +64,4 @@ COPY scripts/entrypoint /opt/docker/bin/entrypoint
 # Activate the `conda` environment `base` and the devtoolset compiler.
 # Provide a default command (`bash`), which will start if the user doesn't specify one.
 ENTRYPOINT [ "/opt/conda/bin/tini", "--", "/opt/docker/bin/entrypoint" ]
-CMD [ "/bin/bash" ]
+CMD [ "/opt/conda/bin/bash" ]
