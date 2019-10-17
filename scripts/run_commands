@@ -50,7 +50,7 @@ conda clean -tipy
 
 # Install conda build and deployment tools.
 conda install --yes --quiet \
-    git patch \
+    bash git patch \
     python=3.7 setuptools conda-build anaconda-client
 conda clean -tipy
 
