@@ -1,10 +1,8 @@
 FROM condaforge/linux-anvil-comp7
 
-# Start fresh with a scratch image
+# Start fresh with a busybox image
 # Then copy over the pieces from the previous image that are needed
-FROM scratch
-COPY --from=0 /lib64 /lib64
-COPY --from=0 /bin/bash /bin/bash
+FROM busybox
 COPY --from=0 /opt /opt
 COPY --from=0 /home /home
 
