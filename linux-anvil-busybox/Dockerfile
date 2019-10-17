@@ -8,6 +8,16 @@ ENV LANG en_US.UTF-8
 # Add a timestamp for the build. Also, bust the cache.
 ADD http://worldclockapi.com/api/json/utc/now /opt/docker/etc/timestamp
 
+# Replace busybox's tar with our own.
+# Their tar is missing some options.
+RUN mkdir -p /tmp/conda/ && \
+    cd /tmp/conda && \
+    wget -O condatarpkg.tar.bz2 https://anaconda.org/conda-forge/tar/1.32/download/linux-64/tar-1.32-hd4ba37b_0.tar.bz2 && \
+    tar -xvjf condatarpkg.tar.bz2 && \
+    mv -f bin/tar /bin/tar && \
+    cd / && \
+    rm -r /tmp/conda
+
 # Run common commands
 COPY scripts/run_commands /opt/docker/bin/run_commands
 RUN /opt/docker/bin/run_commands
