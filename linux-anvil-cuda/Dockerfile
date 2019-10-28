@@ -23,6 +23,15 @@ RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 # Remove preinclude system compilers
 RUN rpm -e --nodeps --verbose gcc gcc-c++
 
+# Workaround CUDA 10.1+ installation of cuBLAS to /usr
+RUN ln -ns /usr/lib64/stubs/libcublas.so /usr/local/cuda/lib64/stubs/ && \
+    ln -ns /usr/lib64/stubs/libcublasLt.so /usr/local/cuda/lib64/stubs/ && \
+    ln -ns /usr/include/cublas.h /usr/local/cuda/include/ && \
+    ln -ns /usr/include/cublasLt.h /usr/local/cuda/include/ && \
+    ln -ns /usr/include/cublasXt.h /usr/local/cuda/include/ && \
+    ln -ns /usr/include/cublas_api.h /usr/local/cuda/include/ && \
+    ln -ns /usr/include/cublas_v2.h /usr/local/cuda/include/
+
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/
 RUN yum update -y && \
