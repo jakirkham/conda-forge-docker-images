@@ -4,7 +4,7 @@
 
 ARG CUDA_VER
 
-FROM nvidia/cuda-arm64:${CUDA_VER}-devel-centos7
+FROM nvidia/cuda-arm64:${CUDA_VER}-devel-ubuntu18.04
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
