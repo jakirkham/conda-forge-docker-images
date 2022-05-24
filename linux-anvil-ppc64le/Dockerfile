@@ -1,7 +1,7 @@
 ARG CENTOS_VER
 FROM ppc64le/centos:${CENTOS_VER}
 
-MAINTAINER conda-forge <conda-forge@googlegroups.com>
+LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static

@@ -1,9 +1,9 @@
 ARG CENTOS_VER
 FROM arm64v8/centos:${CENTOS_VER}
 
-ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
-
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
+
+ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
 
 ARG CENTOS_VER
 ENV CENTOS_VER=${CENTOS_VER}
