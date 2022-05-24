@@ -1,5 +1,5 @@
 ARG CENTOS_VER
-FROM centos:${CENTOS_VER}
+FROM --platform=linux/amd64 centos:${CENTOS_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 

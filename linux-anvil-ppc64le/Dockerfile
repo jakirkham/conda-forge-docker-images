@@ -1,5 +1,5 @@
 ARG CENTOS_VER
-FROM ppc64le/centos:${CENTOS_VER}
+FROM --platform=linux/ppc64le centos:${CENTOS_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
