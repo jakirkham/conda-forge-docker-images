@@ -3,8 +3,8 @@
 # using the CUDA runtime.
 
 ARG CUDA_VER
-ARG CENTOS_VER
-FROM --platform=linux/ppc64le nvidia/cuda:${CUDA_VER}-devel-centos${CENTOS_VER}
+ARG DISTRO_VER
+FROM --platform=linux/ppc64le nvidia/cuda:${CUDA_VER}-devel-centos${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
@@ -13,9 +13,9 @@ ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
 # Set CUDA_VER during runtime.
 ARG CUDA_VER
-ARG CENTOS_VER
+ARG DISTRO_VER
 ENV CUDA_VER=${CUDA_VER} \
-    CENTOS_VER=${CENTOS_VER}
+    DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
@@ -52,9 +52,9 @@ ADD https://loripsum.net/api /opt/docker/etc/gibberish
 # Naming convention changed with cos8 - see:
 # * https://lists.centos.org/pipermail/centos-devel/2019-September/017847.html
 # * https://www.centos.org/keys/#project-keys
-RUN if [ "$CENTOS_VER" -le "7" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${CENTOS_VER} && \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-${CENTOS_VER}-ppc64le; \
+RUN if [ "$DISTRO_VER" -le "7" ]; then \
+        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER} && \
+        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-${DISTRO_VER}-ppc64le; \
     else \
         rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
     fi
@@ -66,7 +66,7 @@ RUN rpm -e --nodeps --verbose gcc gcc-c++
 COPY scripts/yum_clean_all /opt/docker/bin/
 
 # Fallback to CentOS vault for CentOS 8 support.
-RUN if [ "$CENTOS_VER" -eq "8" ]; then \
+RUN if [ "$DISTRO_VER" -eq "8" ]; then \
         find /etc/yum.repos.d/ -name "CentOS-*.repo" -exec \
              sed -i 's/mirrorlist/#mirrorlist/g;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' {} \; && \
         yum update -y --disablerepo=cuda && \
@@ -85,7 +85,7 @@ RUN yum update -y --disablerepo=cuda && \
 
 # Fix locale in CentOS8 images
 # See https://github.com/CentOS/sig-cloud-instance-images/issues/154
-RUN if [ "$CENTOS_VER" -ge "8" ]; then \
+RUN if [ "$DISTRO_VER" -ge "8" ]; then \
         yum install -y glibc-langpack-en \
         && \
         /opt/docker/bin/yum_clean_all; \

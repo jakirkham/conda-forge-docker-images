@@ -1,10 +1,10 @@
-ARG CENTOS_VER
-FROM --platform=linux/amd64 centos:${CENTOS_VER}
+ARG DISTRO_VER
+FROM --platform=linux/amd64 centos:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
-ARG CENTOS_VER
-ENV CENTOS_VER=${CENTOS_VER}
+ARG DISTRO_VER
+ENV DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
@@ -19,7 +19,7 @@ ADD qemu-s390x-static /usr/bin/qemu-s390x-static
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
 # Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${CENTOS_VER}
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER}
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/

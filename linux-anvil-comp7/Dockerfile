@@ -1,10 +1,10 @@
-ARG CENTOS_VER
-FROM --platform=linux/amd64 centos:${CENTOS_VER}
+ARG DISTRO_VER
+FROM --platform=linux/amd64 centos:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
-ARG CENTOS_VER
-ENV CENTOS_VER=${CENTOS_VER}
+ARG DISTRO_VER
+ENV DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
@@ -24,7 +24,7 @@ RUN rm -rf /etc/yum.repos.d/*
 ADD centos6-vault.repo /etc/yum.repos.d/vault.repo
 
 # Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${CENTOS_VER}
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER}
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/

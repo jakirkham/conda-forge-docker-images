@@ -18,195 +18,195 @@ jobs:
         cfg:
         - DOCKERIMAGE: linux-anvil-comp7
           DOCKERTAG: latest
-          CENTOS_VER: "6"
+          DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cos7-x86_64
           DOCKERTAG: latest
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le
           DOCKERTAG: latest
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-aarch64
           DOCKERTAG: latest
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
-          CENTOS_VER: "6"
+          DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
-          CENTOS_VER: "6"
+          DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
-          CENTOS_VER: "6"
+          DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
-          CENTOS_VER: "6"
+          DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
-          CENTOS_VER: "7"
+          DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
-          CENTOS_VER: "8"
+          DISTRO_VER: "8"
 
     env:
       DOCKERIMAGE: ${{ matrix.cfg.DOCKERIMAGE }}
       DOCKERFILE: ${{ matrix.cfg.DOCKERFILE }}
       DOCKERTAG: ${{ matrix.cfg.DOCKERTAG }}
       CUDA_VER: ${{ matrix.cfg.CUDA_VER }}
-      CENTOS_VER: ${{ matrix.cfg.CENTOS_VER }}
+      DISTRO_VER: ${{ matrix.cfg.DISTRO_VER }}
 
     steps:
       - uses: actions/checkout@v2
@@ -227,7 +227,7 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            --build-arg CUDA_VER --build-arg CENTOS_VER \
+            --build-arg CUDA_VER --build-arg DISTRO_VER \
             -t condaforge/$DOCKERIMAGE:$DOCKERTAG \
             -f ${DOCKERFILE:-${DOCKERIMAGE}}/Dockerfile \
             --no-cache --squash .

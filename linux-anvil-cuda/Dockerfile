@@ -1,14 +1,14 @@
 # Set environment variables during runtime.
 ARG CUDA_VER
-ARG CENTOS_VER
-FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-centos${CENTOS_VER}
+ARG DISTRO_VER
+FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-centos${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 ARG CUDA_VER
-ARG CENTOS_VER
+ARG DISTRO_VER
 ENV CUDA_VER=${CUDA_VER} \
-    CENTOS_VER=${CENTOS_VER}
+    DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
@@ -17,10 +17,10 @@ ENV LANG en_US.UTF-8
 ENV CUDA_HOME /usr/local/cuda
 
 # Remove outdated repo URLs
-RUN if [[ "$CENTOS_VER" == "6" ]]; then rm -rf /etc/yum.repos.d/CentOS-*; fi
+RUN if [[ "$DISTRO_VER" == "6" ]]; then rm -rf /etc/yum.repos.d/CentOS-*; fi
 # Add the archived centos6 repo URL
 ADD centos6-vault.repo /tmp/vault.repo
-RUN if [[ "$CENTOS_VER" == "6" ]]; then cp /tmp/vault.repo /etc/yum.repos.d/vault.repo; fi
+RUN if [[ "$DISTRO_VER" == "6" ]]; then cp /tmp/vault.repo /etc/yum.repos.d/vault.repo; fi
 RUN rm /tmp/vault.repo
 
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
