@@ -1,13 +1,16 @@
 # Set environment variables during runtime.
 ARG CUDA_VER
+ARG DISTRO_NAME
 ARG DISTRO_VER
-FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-centos${DISTRO_VER}
+FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-${DISTRO_NAME}${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 ARG CUDA_VER
+ARG DISTRO_NAME
 ARG DISTRO_VER
 ENV CUDA_VER=${CUDA_VER} \
+    DISTRO_NAME=${DISTRO_NAME} \
     DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.

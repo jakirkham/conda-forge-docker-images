@@ -18,187 +18,224 @@ jobs:
         cfg:
         - DOCKERIMAGE: linux-anvil-comp7
           DOCKERTAG: latest
+          DISTRO_NAME: "centos"
           DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cos7-x86_64
           DOCKERTAG: latest
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le
           DOCKERTAG: latest
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-aarch64
           DOCKERTAG: latest
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "6"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cos7-cuda
           DOCKERFILE: linux-anvil-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "9.2"
           CUDA_VER: "9.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.0"
           CUDA_VER: "10.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.1"
           CUDA_VER: "10.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "10.2"
           CUDA_VER: "10.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "7"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.2"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.1"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.0"
+          DISTRO_NAME: "centos"
           DISTRO_VER: "8"
 
     env:
@@ -206,6 +243,7 @@ jobs:
       DOCKERFILE: ${{ matrix.cfg.DOCKERFILE }}
       DOCKERTAG: ${{ matrix.cfg.DOCKERTAG }}
       CUDA_VER: ${{ matrix.cfg.CUDA_VER }}
+      DISTRO_NAME: ${{ matrix.cfg.DISTRO_NAME }}
       DISTRO_VER: ${{ matrix.cfg.DISTRO_VER }}
 
     steps:
@@ -227,7 +265,8 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            --build-arg CUDA_VER --build-arg DISTRO_VER \
+            --build-arg CUDA_VER \
+            --build-arg DISTRO_NAME --build-arg DISTRO_VER \
             -t condaforge/$DOCKERIMAGE:$DOCKERTAG \
             -f ${DOCKERFILE:-${DOCKERIMAGE}}/Dockerfile \
             --no-cache --squash .

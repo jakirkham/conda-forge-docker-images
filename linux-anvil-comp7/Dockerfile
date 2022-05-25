@@ -1,10 +1,13 @@
+ARG DISTRO_NAME
 ARG DISTRO_VER
-FROM --platform=linux/amd64 centos:${DISTRO_VER}
+FROM --platform=linux/amd64 ${DISTRO_NAME}:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
+ARG DISTRO_NAME
 ARG DISTRO_VER
-ENV DISTRO_VER=${DISTRO_VER}
+ENV DISTRO_NAME=${DISTRO_NAME} \
+    DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8

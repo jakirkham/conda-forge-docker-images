@@ -1,13 +1,17 @@
+ARG DISTRO_NAME
 ARG DISTRO_VER
-FROM --platform=linux/ppc64le centos:${DISTRO_VER}
+FROM --platform=linux/ppc64le ${DISTRO_NAME}:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
+# Set CUDA_VER during runtime.
+ARG DISTRO_NAME
 ARG DISTRO_VER
-ENV DISTRO_VER=${DISTRO_VER}
+ENV DISTRO_NAME=${DISTRO_NAME} \
+    DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
