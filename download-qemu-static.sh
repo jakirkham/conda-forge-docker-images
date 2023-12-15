@@ -8,15 +8,21 @@ fi
 
 rm -f qemu-*-static
 
-version='8.0.4'
-build='dfsg-1ubuntu5'
-curl -sL \
-    "https://mirrors.edge.kernel.org/ubuntu/pool/universe/q/qemu/qemu-user-static_${version}%2B${build}_amd64.deb" |
-    dpkg-deb --extract - ./deb-tmp
-mv ./deb-tmp/usr/bin/qemu-*-static ./
-rm -rf ./deb-tmp
+# We use curl and bsdtar to obtain QEMU binaries. Install them beforehand.
+apt-get update -qq
+DEBIAN_FRONTEND=noninteractive \
+    apt-get install --yes --no-install-recommends \
+    ca-certificates curl libarchive-tools
+
+version='8.0.3'
+build='4.fc40'
+for arch in aarch64 ppc64le s390x; do
+    curl -sL \
+        "https://kojipkgs.fedoraproject.org/packages/qemu/${version}/${build}/x86_64/qemu-user-static-${arch/ppc64le/ppc}-${version}-${build}.x86_64.rpm" |
+        bsdtar -xf- --strip-components=3 ./usr/bin/qemu-${arch}-static
+done
 sha256sum --check << 'EOF'
-0312d58f7f2e5825c84d9c39e686da8a2714728c5ed5b872716f06e189e6bbaa  qemu-aarch64-static
-6a9cc7d3d1a931811b1b91bbff83fb0bbfb0fb06cf8b7b980afad2ee55e3d06a  qemu-ppc64le-static
-8cf7e22ce2038cb36d9d0a9c49118e76a7fe6ab5d9c27d595b6815acc4b3bfac  qemu-s390x-static
+d02f52c9135453a453a80e5746eee13bb4ea9cd31080d9ad9a75e6442f930402  qemu-aarch64-static
+b68bdd489120afe8d4f76dc040651dbb0d6012d33395920fe4a1e4afb84f5b72  qemu-ppc64le-static
+68e711c57b7e74306bafc08a0884f34dde45b8866a07d4fe5506f673d9ea485b  qemu-s390x-static
 EOF
