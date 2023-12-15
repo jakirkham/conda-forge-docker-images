@@ -9,9 +9,9 @@ fi
 rm -f qemu-*-static
 
 # We use curl and bsdtar to obtain QEMU binaries. Install them beforehand.
-apt-get update -qq
+sudo apt-get update -qq
 DEBIAN_FRONTEND=noninteractive \
-    apt-get install --yes --no-install-recommends \
+    sudo apt-get install --yes --no-install-recommends \
     ca-certificates curl libarchive-tools
 
 version='8.1.3'
