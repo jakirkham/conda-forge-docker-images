@@ -315,6 +315,7 @@ jobs:
           readme_file: "${{ matrix.cfg.DOCKERFILE == '' && matrix.cfg.DOCKERIMAGE || matrix.cfg.DOCKERFILE }}/README.md"
 
       - name: Push README to Quay.io
+        if: github.ref == 'refs/heads/main' && github.repository == 'conda-forge/docker-images'
         uses: christian-korneck/update-container-description-action@v1
         env:
           DOCKER_APIKEY: ${{ secrets.CFD_QUAY_PASSWORD }}
