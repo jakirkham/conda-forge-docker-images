@@ -21,183 +21,214 @@ jobs:
           DOCKERTAG: latest
           DISTRO_NAME: "centos"
           DISTRO_VER: "6"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 6 on x86_64"
 
         - DOCKERIMAGE: linux-anvil-cos7-x86_64
           DOCKERTAG: latest
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64"
 
         - DOCKERIMAGE: linux-anvil-ppc64le
           DOCKERTAG: latest
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on ppc64le"
 
         - DOCKERIMAGE: linux-anvil-aarch64
           DOCKERTAG: latest
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on aarch64"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.3"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.2"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.2"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.7"
           CUDA_VER: "11.7.1"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.8"
           CUDA_VER: "11.8.0"
           DISTRO_NAME: "centos"
           DISTRO_VER: "7"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.3"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.7"
           CUDA_VER: "11.7.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.8"
           CUDA_VER: "11.8.0"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.0"
           CUDA_VER: "11.0.3"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.1"
           CUDA_VER: "11.1.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.2"
           CUDA_VER: "11.2.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.3"
           CUDA_VER: "11.3.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.3"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.5"
           CUDA_VER: "11.5.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.6"
           CUDA_VER: "11.6.2"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.7"
           CUDA_VER: "11.7.1"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.8"
           CUDA_VER: "11.8.0"
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-alma-x86_64
           DOCKERFILE: linux-anvil-alma
@@ -205,6 +236,7 @@ jobs:
           DISTRO_ARCH: "amd64"
           DISTRO_NAME: "almalinux"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Alma 8 on x86_64"
 
         - DOCKERIMAGE: linux-anvil-alma-aarch64
           DOCKERFILE: linux-anvil-alma
@@ -212,6 +244,7 @@ jobs:
           DISTRO_ARCH: "arm64"
           DISTRO_NAME: "almalinux"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Alma 8 on aarch64"
 
         - DOCKERIMAGE: linux-anvil-alma-ppc64le
           DOCKERFILE: linux-anvil-alma
@@ -219,6 +252,7 @@ jobs:
           DISTRO_ARCH: "ppc64le"
           DISTRO_NAME: "almalinux"
           DISTRO_VER: "8"
+          SHORT_DESCRIPTION: "conda-forge build image for Alma 8 on ppc64le"
 
     env:
       DOCKERIMAGE: ${{ matrix.cfg.DOCKERIMAGE }}
@@ -260,6 +294,10 @@ jobs:
         run: |
           ./.circleci/run_docker_build.sh
 
+      - name: Make readme file
+        run: |
+          ./scripts/gen_readme
+
       - name: Deploy
         if: github.ref == 'refs/heads/main' && github.repository == 'conda-forge/docker-images'
         env:
@@ -267,3 +305,25 @@ jobs:
           DH_PASSWORD: ${{ secrets.DH_PASSWORD }}
         run: |
           ./scripts/deploy
+
+      - name: Push README to Dockerhub
+        if: github.ref == 'refs/heads/main' && github.repository == 'conda-forge/docker-images'
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: condaforgebot
+          DOCKER_PASS: ${{ secrets.DH_PASSWORD }}
+        with:
+          destination_container_repo: condaforge/${{ matrix.cfg.DOCKERIMAGE }}:${{ matrix.cfg.DOCKERTAG }}
+          provider: dockerhub
+          short_description: "${{ matrix.cfg.SHORT_DESCRIPTION }}"
+          readme_file: "${{ matrix.cfg.DOCKERFILE == '' && matrix.cfg.DOCKERIMAGE || matrix.cfg.DOCKERFILE }}/README.md"
+
+      - name: Push README to Quay.io
+        if: github.ref == 'refs/heads/main' && github.repository == 'conda-forge/docker-images'
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_APIKEY: ${{ secrets.CFD_QUAY_PASSWORD }}
+        with:
+          destination_container_repo: quay.io/condaforge/${{ matrix.cfg.DOCKERIMAGE }}:${{ matrix.cfg.DOCKERTAG }}
+          provider: quay
+          readme_file: "${{ matrix.cfg.DOCKERFILE == '' && matrix.cfg.DOCKERIMAGE || matrix.cfg.DOCKERFILE }}/README.md"
