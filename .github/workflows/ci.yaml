@@ -322,7 +322,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.repository == 'conda-forge/docker-images'
         uses: christian-korneck/update-container-description-action@v1
         env:
-          DOCKER_APIKEY: ${{ secrets.CFD_QUAY_PASSWORD }}
+          DOCKER_APIKEY: ${{ secrets.DOCKER_IMAGES_QUAY_API_KEY }}
         with:
           destination_container_repo: quay.io/condaforge/${{ matrix.cfg.DOCKERIMAGE }}:${{ matrix.cfg.DOCKERTAG }}
           provider: quay
