@@ -262,6 +262,7 @@ jobs:
       DISTRO_ARCH: ${{ matrix.cfg.DISTRO_ARCH }}
       DISTRO_NAME: ${{ matrix.cfg.DISTRO_NAME }}
       DISTRO_VER: ${{ matrix.cfg.DISTRO_VER }}
+      SHORT_DESCRIPTION: ${{ matrix.cfg.SHORT_DESCRIPTION }}
 
     steps:
       - uses: actions/checkout@v4
