@@ -1,3 +1,15 @@
 #!/bin/bash
 
-cp README.md ${DOCKERFILE:-${DOCKERIMAGE}}/README.md
+readme=${DOCKERFILE:-${DOCKERIMAGE}}/README.md
+cp Dockerfile_README.md $readme
+
+sed -i.bak "s|@@IMAGENAME@@|${DOCKERIMAGE}|g" $readme
+sed -i.bak "s|@@SHORTDESCRIPTION@@|${SHORT_DESCRIPTION}|g" $readme
+sed -i.bak "s|@@DOCKERTAG@@|${DOCKERTAG}|g" $readme
+
+echo "========================================================="
+echo "========================================================="
+echo "generated README.md"
+cat $readme
+echo "========================================================="
+echo "========================================================="
