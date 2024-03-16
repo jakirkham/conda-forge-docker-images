@@ -1,4 +1,4 @@
-# @@IMAGENAME@@
+# conda-forge/@@IMAGENAME@@
 [![CI](https://github.com/conda-forge/docker-images/workflows/CI/badge.svg)](https://github.com/conda-forge/docker-images/actions?query=branch%3Amain+workflow%3Aci)
 
 @@SHORTDESCRIPTION@@
