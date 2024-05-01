@@ -42,34 +42,6 @@ jobs:
           SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on aarch64"
 
         - DOCKERIMAGE: linux-anvil-cuda
-          DOCKERTAG: "11.0"
-          CUDA_VER: "11.0.3"
-          DISTRO_NAME: "centos"
-          DISTRO_VER: "7"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-cuda
-          DOCKERTAG: "11.1"
-          CUDA_VER: "11.1.1"
-          DISTRO_NAME: "centos"
-          DISTRO_VER: "7"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-cuda
-          DOCKERTAG: "11.2"
-          CUDA_VER: "11.2.2"
-          DISTRO_NAME: "centos"
-          DISTRO_VER: "7"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-cuda
-          DOCKERTAG: "11.3"
-          CUDA_VER: "11.3.1"
-          DISTRO_NAME: "centos"
-          DISTRO_VER: "7"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.3"
           DISTRO_NAME: "centos"
@@ -105,34 +77,6 @@ jobs:
           SHORT_DESCRIPTION: "conda-forge build image for Cent0S 7 on x86_64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-ppc64le-cuda
-          DOCKERTAG: "11.0"
-          CUDA_VER: "11.0.3"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-ppc64le-cuda
-          DOCKERTAG: "11.1"
-          CUDA_VER: "11.1.1"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-ppc64le-cuda
-          DOCKERTAG: "11.2"
-          CUDA_VER: "11.2.2"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-ppc64le-cuda
-          DOCKERTAG: "11.3"
-          CUDA_VER: "11.3.1"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-ppc64le-cuda
           DOCKERTAG: "11.4"
           CUDA_VER: "11.4.3"
           DISTRO_NAME: "ubi"
@@ -166,34 +110,6 @@ jobs:
           DISTRO_NAME: "ubi"
           DISTRO_VER: "8"
           SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on ppc64le with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-aarch64-cuda
-          DOCKERTAG: "11.0"
-          CUDA_VER: "11.0.3"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-aarch64-cuda
-          DOCKERTAG: "11.1"
-          CUDA_VER: "11.1.1"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-aarch64-cuda
-          DOCKERTAG: "11.2"
-          CUDA_VER: "11.2.2"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
-
-        - DOCKERIMAGE: linux-anvil-aarch64-cuda
-          DOCKERTAG: "11.3"
-          CUDA_VER: "11.3.1"
-          DISTRO_NAME: "ubi"
-          DISTRO_VER: "8"
-          SHORT_DESCRIPTION: "conda-forge build image for Cent0S 8 on aarch64 with CUDA"
 
         - DOCKERIMAGE: linux-anvil-aarch64-cuda
           DOCKERTAG: "11.4"
