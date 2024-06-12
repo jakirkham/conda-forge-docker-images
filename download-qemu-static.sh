@@ -14,6 +14,10 @@ DEBIAN_FRONTEND=noninteractive \
     sudo apt-get install --yes --no-install-recommends \
     ca-certificates curl libarchive-tools
 
+# see https://gitlab.com/qemu-project/qemu/-/tags for versions;
+# we use the RPMs from https://kojipkgs.fedoraproject.org/packages/qemu;
+# do not use qemu builds from unrelesed fedora versions, compare `build`
+# vs. https://en.wikipedia.org/wiki/Fedora_Linux_release_history
 version='8.2.4'
 build='1.fc40'
 for arch in aarch64 ppc64le s390x; do
