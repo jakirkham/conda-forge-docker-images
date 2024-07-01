@@ -18,15 +18,16 @@ ENV LANGUAGE=en_US.UTF-8
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
+# (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
+# https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670
+RUN sed -i 's/override_install_langs=en_US\.UTF-8/override_install_langs=en_US.utf8/' /etc/yum.conf
+
 # Add the archived repo URL and fix RPM imports
 ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
 ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 
-# (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
-# https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670
-RUN sed -i 's/override_install_langs=en_US\.UTF-8/override_install_langs=en_US.utf8/' /etc/yum.conf
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/
 RUN yum update -y && \
