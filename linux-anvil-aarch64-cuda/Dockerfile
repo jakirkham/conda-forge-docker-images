@@ -1,3 +1,4 @@
+# Set environment variables during runtime.
 ARG CUDA_VER
 ARG DISTRO_NAME
 ARG DISTRO_VER
