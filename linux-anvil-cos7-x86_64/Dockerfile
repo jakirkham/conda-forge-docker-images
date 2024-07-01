@@ -20,8 +20,10 @@ ADD qemu-s390x-static /usr/bin/qemu-s390x-static
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER}
+# Add the archived repo URL and fix RPM imports
+ADD centos7-repos /tmp/centos7-repos
+ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
+RUN /opt/docker/bin/fix_rpm
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/
