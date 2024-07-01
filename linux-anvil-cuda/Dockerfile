@@ -42,8 +42,10 @@ ADD centos7-repos /tmp/centos7-repos
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 
-# Install basic requirements.
+# Add custom `yum_clean_all` script before using `yum`
 COPY scripts/yum_clean_all /opt/docker/bin/
+
+# Install basic requirements.
 RUN yum update -y --disablerepo=cuda && \
     yum install -y \
         bzip2 \
