@@ -49,7 +49,8 @@ RUN yum update -y --disablerepo=cuda && \
         bzip2 \
         sudo \
         tar \
-        which && \
+        which \
+        && \
     /opt/docker/bin/yum_clean_all
 
 # Remove preinclude system compilers
