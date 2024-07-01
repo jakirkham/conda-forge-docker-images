@@ -2,16 +2,14 @@
 
 set -exo pipefail
 
-# Remove outdated repo URLs
+# Disable outdated repos; use vault instead
 if [[ "$DISTRO_VER" == "7" ]]; then
-  rm -rf /etc/yum.repos.d/CentOS-*;
+  sed -i '/^\[/a\enabled=0' /etc/yum.repos.d/CentOS-Base.repo
   if [[ "$(uname -m)" == "x86_64" ]]; then
     cp /tmp/centos7-x86_64-vault.repo /etc/yum.repos.d/vault.repo
   else
     cp /tmp/centos7-altarch-vault.repo /etc/yum.repos.d/vault.repo
   fi
-  # Need to remove again because of some cache. Not sure where
-  yum update -y && rm -rf /etc/yum.repos.d/CentOS-* && yum update -y;
 fi
 
 # Resolves a nasty NOKEY warning that appears when using yum.
