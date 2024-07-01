@@ -6,6 +6,7 @@ FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-${DISTRO_NAME}${DISTRO
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
+# Set `ARG`s during runtime.
 ARG CUDA_VER
 ARG DISTRO_NAME
 ARG DISTRO_VER
