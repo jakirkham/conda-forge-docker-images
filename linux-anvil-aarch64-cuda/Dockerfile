@@ -34,29 +34,13 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-# Naming convention changed with cos8 - see:
-# * https://lists.centos.org/pipermail/centos-devel/2019-September/017847.html
-# * https://www.centos.org/keys/#project-keys
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos7" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-7-aarch64; \
-    elif [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
-    elif [ "${DISTRO_NAME}${DISTRO_VER}" = "ubi8" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release; \
-    fi
-
 # Add custom `yum_clean_all` script before using `yum`
 COPY scripts/yum_clean_all /opt/docker/bin/
 
-# Fallback to CentOS vault for CentOS 8 support.
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
-        find /etc/yum.repos.d/ -name "CentOS-*.repo" -exec \
-             sed -i 's/mirrorlist/#mirrorlist/g;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' {} \; && \
-        yum update -y --disablerepo=cuda && \
-        /opt/docker/bin/yum_clean_all; \
-    fi
+# Add the archived repo URL and fix RPM imports
+ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
+ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+RUN scripts/fix_rpm
 
 # Install basic requirements.
 RUN yum update -y --disablerepo=cuda && \

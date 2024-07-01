@@ -19,13 +19,6 @@ ENV LANG en_US.UTF-8
 # Set path to CUDA install (this is a symlink to /usr/local/cuda-${CUDA_VER})
 ENV CUDA_HOME /usr/local/cuda
 
-# Remove outdated repo URLs
-RUN if [[ "$DISTRO_VER" == "6" ]]; then rm -rf /etc/yum.repos.d/CentOS-*; fi
-# Add the archived centos6 repo URL
-ADD centos6-vault.repo /tmp/vault.repo
-RUN if [[ "$DISTRO_VER" == "6" ]]; then cp /tmp/vault.repo /etc/yum.repos.d/vault.repo; fi
-RUN rm /tmp/vault.repo
-
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
 # since entries in ld.so.conf.d have precedence before the preconfigured directories, we first add the latter to the former
 RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf \
@@ -50,8 +43,10 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN find /etc/pki/rpm-gpg/ -type f | xargs -I {} rpm --import "{}"
+# Add the archived repo URL and fix RPM imports
+ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
+ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+RUN scripts/fix_rpm
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/

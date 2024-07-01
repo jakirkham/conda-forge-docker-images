@@ -18,9 +18,10 @@ ENV LANGUAGE=en_US.UTF-8
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER} && \
-    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER}-aarch64
+# Add the archived repo URL and fix RPM imports
+ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
+ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+RUN scripts/fix_rpm
 
 # (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
 # https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670

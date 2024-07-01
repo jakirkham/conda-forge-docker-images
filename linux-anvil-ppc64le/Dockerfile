@@ -20,9 +20,10 @@ ENV LANGUAGE=en_US.UTF-8
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${DISTRO_VER} && \
-    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-${DISTRO_VER}-ppc64le
+# Add the archived repo URL and fix RPM imports
+ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
+ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+RUN scripts/fix_rpm
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/

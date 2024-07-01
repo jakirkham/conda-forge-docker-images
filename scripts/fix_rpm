@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -exo pipefail
+
+# Remove outdated repo URLs
+if [[ "$DISTRO_VER" == "7" ]]; then
+  rm -rf /etc/yum.repos.d/CentOS-*;
+  if [[ "$(uname -m)" == "x86_64" ]]; then
+    cp /tmp/centos7-x86_64-vault.repo /etc/yum.repos.d/vault.repo
+  else
+    cp /tmp/centos7-altarch-vault.repo /etc/yum.repos.d/vault.repo
+  fi
+fi
+
+# Resolves a nasty NOKEY warning that appears when using yum.
+if [[ "${DISTRO_NAME}${DISTRO_VER}" == "centos7" ]]; then \
+  rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
+  if [[ "$(uname -m)" == "ppc64le" ]]; then
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le;
+  elif [[ "$(uname -m)" == "aarch64" ]]; then
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-7-aarch64;
+  fi
+elif [[ "${DISTRO_NAME}${DISTRO_VER}" == "centos8" ]]; then \
+  rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
+elif [[ "${DISTRO_NAME}${DISTRO_VER}" == "ubi8" ]]; then \
+  rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release; \
+elif [[ "${DISTRO_NAME}${DISTRO_VER}" == "almalinux8" ]]; then \
+  rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
+fi
