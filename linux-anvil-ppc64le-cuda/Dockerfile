@@ -36,8 +36,9 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
     echo "$CUDA_HOME/compat" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
     ldconfig
 
-# Resolves a nasty NOKEY warning that appears when using yum.
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+# Fix RPM imports
+ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
+RUN /opt/docker/bin/fix_rpm
 
 # Add custom `yum_clean_all` script before using `yum`
 COPY scripts/yum_clean_all /opt/docker/bin/
