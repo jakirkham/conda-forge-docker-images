@@ -24,7 +24,7 @@ ENV CUDA_HOME /usr/local/cuda
 
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
 # since entries in ld.so.conf.d have precedence before the preconfigured directories, we first add the latter to the former
-# the upstream images for 10.x all have libcuda.so under $CUDA_HOME/compat;
+# the upstream images all have libcuda.so under $CUDA_HOME/compat;
 # add this to the ldconfig so it will be found correctly.
 # don't forget to update settings by running ldconfig
 RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
