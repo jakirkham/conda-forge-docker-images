@@ -5,8 +5,10 @@ set -exo pipefail
 # Disable outdated repos; use vault instead
 if [[ "$DISTRO_VER" == "7" ]]; then
   sed -i '/^enabled=/d; /^\[/a\enabled=0' /etc/yum.repos.d/CentOS-Base.repo
-  cp "/tmp/centos7-$(uname -m)-vault.repo" /etc/yum.repos.d/vault.repo
+  cp "/tmp/centos7-repos/centos7-$(uname -m)-vault.repo" /etc/yum.repos.d/vault.repo
 fi
+
+rm -rf "/tmp/centos7-repos"
 
 # Resolves a nasty NOKEY warning that appears when using yum.
 if [[ "${DISTRO_NAME}${DISTRO_VER}" == "centos7" ]]; then

@@ -21,9 +21,7 @@ ADD qemu-s390x-static /usr/bin/qemu-s390x-static
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
 # Add the archived repo URL and fix RPM imports
-ADD centos7-x86_64-vault.repo /tmp/
-ADD centos7-aarch64-vault.repo /tmp/
-ADD centos7-ppc64le-vault.repo /tmp/
+ADD centos7-repos /tmp/
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 
