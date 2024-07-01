@@ -40,10 +40,7 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
 # Naming convention changed with cos8 - see:
 # * https://lists.centos.org/pipermail/centos-devel/2019-September/017847.html
 # * https://www.centos.org/keys/#project-keys
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos7" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-7-aarch64; \
-    elif [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
+RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
         rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
     elif [ "${DISTRO_NAME}${DISTRO_VER}" = "ubi8" ]; then \
         rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release; \
