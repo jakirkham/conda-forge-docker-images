@@ -10,10 +10,8 @@ if [[ "$DISTRO_VER" == "7" ]]; then
   else
     cp /tmp/centos7-altarch-vault.repo /etc/yum.repos.d/vault.repo
   fi
-
-  for f in /etc/yum.repos.d/*; do
-    cat $f
-  done
+  # Need to remove again because of some cache. Not sure where
+  yum update -y && rm -rf /etc/yum.repos.d/CentOS-* && yum update -y;
 fi
 
 # Resolves a nasty NOKEY warning that appears when using yum.
