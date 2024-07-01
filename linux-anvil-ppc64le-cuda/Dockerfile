@@ -67,12 +67,13 @@ RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos7" ]; then \
 # Add custom `yum_clean_all` script before using `yum`
 COPY scripts/yum_clean_all /opt/docker/bin/
 
-# Add the archived repo URL and fix RPM imports
-ADD centos7-x86_64-vault.repo /tmp/
-ADD centos7-aarch64-vault.repo /tmp/
-ADD centos7-ppc64le-vault.repo /tmp/
-ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
-RUN /opt/docker/bin/fix_rpm
+# Fallback to CentOS vault for CentOS 8 support.
+RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
+        find /etc/yum.repos.d/ -name "CentOS-*.repo" -exec \
+             sed -i 's/mirrorlist/#mirrorlist/g;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' {} \; && \
+        yum update -y --disablerepo=cuda && \
+        /opt/docker/bin/yum_clean_all; \
+    fi
 
 # Install basic requirements.
 RUN yum update -y --disablerepo=cuda && \
