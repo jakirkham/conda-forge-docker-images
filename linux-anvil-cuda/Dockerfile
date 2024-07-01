@@ -27,12 +27,12 @@ ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
 # since entries in ld.so.conf.d have precedence before the preconfigured directories, we first add the latter to the former
-# The upstream images all have libcuda.so under $CUDA_HOME/compat;
+# the upstream images all have libcuda.so under $CUDA_HOME/compat;
 # add this to the ldconfig so it will be found correctly.
 # don't forget to update settings by running ldconfig
-RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf \
-    echo "$CUDA_HOME/compat" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf ; \
-    && ldconfig
+RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
+    echo "$CUDA_HOME/compat" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
+    ldconfig
 
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
