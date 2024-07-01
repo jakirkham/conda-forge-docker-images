@@ -1,16 +1,19 @@
 # Set environment variables during runtime.
 ARG CUDA_VER
+ARG DISTRO_ARCH
 ARG DISTRO_NAME
 ARG DISTRO_VER
-FROM --platform=linux/amd64 nvidia/cuda:${CUDA_VER}-devel-${DISTRO_NAME}${DISTRO_VER}
+FROM --platform=linux/${DISTRO_ARCH} nvidia/cuda:${CUDA_VER}-devel-${DISTRO_NAME}${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 # Set `ARG`s during runtime.
 ARG CUDA_VER
+ARG DISTRO_ARCH
 ARG DISTRO_NAME
 ARG DISTRO_VER
 ENV CUDA_VER=${CUDA_VER} \
+    DISTRO_ARCH=${DISTRO_ARCH} \
     DISTRO_NAME=${DISTRO_NAME} \
     DISTRO_VER=${DISTRO_VER}
 
@@ -54,6 +57,15 @@ RUN yum update -y --disablerepo=cuda && \
         which \
     && \
     /opt/docker/bin/yum_clean_all
+
+# Fix locale in UBI 8 images
+# See https://github.com/CentOS/sig-cloud-instance-images/issues/154
+RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "ubi8" ]; then \
+        yum install -y \
+            glibc-langpack-en \
+        && \
+        /opt/docker/bin/yum_clean_all; \
+    fi
 
 # Remove preinclude system compilers
 RUN rpm -e --nodeps --verbose gcc gcc-c++
