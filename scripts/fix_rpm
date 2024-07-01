@@ -5,11 +5,7 @@ set -exo pipefail
 # Disable outdated repos; use vault instead
 if [[ "$DISTRO_VER" == "7" ]]; then
   sed -i '/^enabled=/d; /^\[/a\enabled=0' /etc/yum.repos.d/CentOS-Base.repo
-  if [[ "$(uname -m)" == "x86_64" ]]; then
-    cp /tmp/centos7-x86_64-vault.repo /etc/yum.repos.d/vault.repo
-  else
-    cp /tmp/centos7-altarch-vault.repo /etc/yum.repos.d/vault.repo
-  fi
+  cp "/tmp/centos7-$(uname -m)-vault.repo" /etc/yum.repos.d/vault.repo
 fi
 
 # Resolves a nasty NOKEY warning that appears when using yum.
@@ -18,7 +14,7 @@ if [[ "${DISTRO_NAME}${DISTRO_VER}" == "centos7" ]]; then \
   if [[ "$(uname -m)" == "ppc64le" ]]; then
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-7-ppc64le;
   elif [[ "$(uname -m)" == "aarch64" ]]; then
-    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-7-aarch64;
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64;
   fi
 elif [[ "${DISTRO_NAME}${DISTRO_VER}" == "centos8" ]]; then \
   rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
