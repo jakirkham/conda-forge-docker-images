@@ -44,7 +44,7 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
 # Add the archived repo URL and fix RPM imports
-ADD centos7-repos /tmp/
+ADD centos7-repos /tmp/centos7-repos
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 
