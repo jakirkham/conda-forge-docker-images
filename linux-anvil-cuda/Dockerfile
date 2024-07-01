@@ -64,14 +64,6 @@ RUN source /opt/conda/etc/profile.d/conda.sh && \
     chgrp -R lucky /opt/conda && \
     chmod -R g=u /opt/conda
 
-# Symlink CUDA headers that were moved from $CUDA_HOME/include to /usr/include
-# in CUDA 10.1.
-RUN for HEADER_FILE in cublas_api.h cublas.h cublasLt.h cublas_v2.h cublasXt.h nvblas.h; do \
-    if [[ ! -f "${CUDA_HOME}/include/${HEADER_FILE}" ]]; \
-      then ln -s "/usr/include/${HEADER_FILE}" "${CUDA_HOME}/include/${HEADER_FILE}"; \
-    fi; \
-    done
-
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
 ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
