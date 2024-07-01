@@ -23,8 +23,9 @@ ADD https://loripsum.net/api /opt/docker/etc/gibberish
 RUN sed -i 's/override_install_langs=en_US\.UTF-8/override_install_langs=en_US.utf8/' /etc/yum.conf
 
 # Add the archived repo URL and fix RPM imports
-ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
-ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+ADD centos7-x86_64-vault.repo /tmp/
+ADD centos7-aarch64-vault.repo /tmp/
+ADD centos7-ppc64le-vault.repo /tmp/
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 

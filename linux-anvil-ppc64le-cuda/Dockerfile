@@ -68,8 +68,9 @@ RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos7" ]; then \
 COPY scripts/yum_clean_all /opt/docker/bin/
 
 # Add the archived repo URL and fix RPM imports
-ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
-ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
+ADD centos7-x86_64-vault.repo /tmp/
+ADD centos7-aarch64-vault.repo /tmp/
+ADD centos7-ppc64le-vault.repo /tmp/
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
 RUN /opt/docker/bin/fix_rpm
 
