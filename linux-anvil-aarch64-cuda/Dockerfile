@@ -49,7 +49,7 @@ RUN yum update -y --disablerepo=cuda && \
         sudo \
         tar \
         which \
-        && \
+    && \
     /opt/docker/bin/yum_clean_all
 
 # Fix locale in UBI 8 images
