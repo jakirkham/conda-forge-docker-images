@@ -17,12 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         cfg:
-          - DOCKERIMAGE: linux-anvil-comp7
-            DOCKERTAG: latest
-            DISTRO_NAME: "centos"
-            DISTRO_VER: "6"
-            SHORT_DESCRIPTION: "conda-forge build image for Cent0S 6 on x86_64"
-
           - DOCKERIMAGE: linux-anvil-cos7-x86_64
             DOCKERTAG: latest
             DISTRO_NAME: "centos"
