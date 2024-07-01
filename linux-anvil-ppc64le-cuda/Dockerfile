@@ -21,6 +21,9 @@ ENV LANGUAGE en_US.UTF-8
 # Set path to CUDA install (this is a symlink to /usr/local/cuda-${CUDA_VER})
 ENV CUDA_HOME /usr/local/cuda
 
+# bust the docker cache so that we always rerun the installs below
+ADD https://loripsum.net/api /opt/docker/etc/gibberish
+
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
@@ -32,9 +35,6 @@ ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
     echo "$CUDA_HOME/compat" >> /etc/ld.so.conf.d/cuda-$CUDA_VER.conf && \
     ldconfig
-
-# bust the docker cache so that we always rerun the installs below
-ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
 # Resolves a nasty NOKEY warning that appears when using yum.
 # Naming convention changed with cos8 - see:
