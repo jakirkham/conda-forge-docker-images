@@ -18,7 +18,7 @@ ENV CUDA_VER=${CUDA_VER} \
 ENV LANG en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8
 
-# Set path to CUDA install.
+# Set path to CUDA install (this is a symlink to /usr/local/cuda-${CUDA_VER})
 ENV CUDA_HOME /usr/local/cuda
 
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
