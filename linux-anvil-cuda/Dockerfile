@@ -19,6 +19,10 @@ ENV LANG en_US.UTF-8
 # Set path to CUDA install (this is a symlink to /usr/local/cuda-${CUDA_VER})
 ENV CUDA_HOME /usr/local/cuda
 
+# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
+ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
+ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
+
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
 # since entries in ld.so.conf.d have precedence before the preconfigured directories, we first add the latter to the former
 # The upstream images all have libcuda.so under $CUDA_HOME/compat;
@@ -63,10 +67,6 @@ RUN source /opt/conda/etc/profile.d/conda.sh && \
     conda clean -tiy && \
     chgrp -R lucky /opt/conda && \
     chmod -R g=u /opt/conda
-
-# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
-ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
-ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
 # Add a file for users to source to activate the `conda`
 # environment `base`. Also add a file that wraps that for

@@ -6,8 +6,6 @@ FROM --platform=linux/arm64 nvidia/cuda:${CUDA_VER}-devel-${DISTRO_NAME}${DISTRO
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
-ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
-
 # Set CUDA_VER during runtime.
 ARG CUDA_VER
 ARG DISTRO_NAME
@@ -22,6 +20,9 @@ ENV LANGUAGE=en_US.UTF-8
 
 # Set path to CUDA install.
 ENV CUDA_HOME /usr/local/cuda
+
+# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
+ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
 
 # we want to persist a path in ldconfig (to avoid having to always set LD_LIBRARY_PATH), but *after* the existing entries;
 # since entries in ld.so.conf.d have precedence before the preconfigured directories, we first add the latter to the former
