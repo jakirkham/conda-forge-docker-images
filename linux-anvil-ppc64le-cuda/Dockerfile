@@ -37,25 +37,10 @@ RUN ldconfig -v 2>/dev/null | grep -v ^$'\t' | cut -f1 -d":" >> /etc/ld.so.conf.
     ldconfig
 
 # Resolves a nasty NOKEY warning that appears when using yum.
-# Naming convention changed with cos8 - see:
-# * https://lists.centos.org/pipermail/centos-devel/2019-September/017847.html
-# * https://www.centos.org/keys/#project-keys
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial; \
-    elif [ "${DISTRO_NAME}${DISTRO_VER}" = "ubi8" ]; then \
-        rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release; \
-    fi
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
 # Add custom `yum_clean_all` script before using `yum`
 COPY scripts/yum_clean_all /opt/docker/bin/
-
-# Fallback to CentOS vault for CentOS 8 support.
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ]; then \
-        find /etc/yum.repos.d/ -name "CentOS-*.repo" -exec \
-             sed -i 's/mirrorlist/#mirrorlist/g;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' {} \; && \
-        yum update -y --disablerepo=cuda && \
-        /opt/docker/bin/yum_clean_all; \
-    fi
 
 # Install basic requirements.
 RUN yum update -y --disablerepo=cuda && \
@@ -67,13 +52,10 @@ RUN yum update -y --disablerepo=cuda && \
         && \
     /opt/docker/bin/yum_clean_all
 
-# Fix locale in CentOS8 images
+# Fix locale in UBI 8 images
 # See https://github.com/CentOS/sig-cloud-instance-images/issues/154
-RUN if [ "${DISTRO_NAME}${DISTRO_VER}" = "centos8" ] || [ "${DISTRO_NAME}${DISTRO_VER}" = "ubi8" ]; then \
-        yum install -y glibc-langpack-en \
-        && \
-        /opt/docker/bin/yum_clean_all; \
-    fi
+RUN yum install -y glibc-langpack-en && \
+    /opt/docker/bin/yum_clean_all
 
 # Remove preinclude system compilers
 RUN rpm -e --nodeps --verbose gcc gcc-c++
