@@ -26,7 +26,8 @@ ADD https://loripsum.net/api /opt/docker/etc/gibberish
 # Add the archived repo URL and fix RPM imports
 ADD centos7-x86_64-vault.repo /tmp/centos7-x86_64-vault.repo
 ADD centos7-altarch-vault.repo /tmp/centos7-altarch-vault.repo
-RUN scripts/fix_rpm
+ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
+RUN /opt/docker/bin/fix_rpm
 
 # Install basic requirements.
 COPY scripts/yum_clean_all /opt/docker/bin/
