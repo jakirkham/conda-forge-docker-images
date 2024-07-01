@@ -4,7 +4,7 @@ set -exo pipefail
 
 # Disable outdated repos; use vault instead
 if [[ "$DISTRO_VER" == "7" ]]; then
-  sed -i '/^\[/a\enabled=0' /etc/yum.repos.d/CentOS-Base.repo
+  sed -i '/^enabled=/d; /^\[/a\enabled=0' /etc/yum.repos.d/CentOS-Base.repo
   if [[ "$(uname -m)" == "x86_64" ]]; then
     cp /tmp/centos7-x86_64-vault.repo /etc/yum.repos.d/vault.repo
   else
