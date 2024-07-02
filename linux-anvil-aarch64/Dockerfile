@@ -4,8 +4,6 @@ ARG DISTRO_NAME
 ARG DISTRO_VER
 FROM --platform=linux/${DISTRO_ARCH} ${DISTRO_NAME}:${DISTRO_VER}
 
-ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
-
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
 # Set `ARG`s during build.
@@ -22,6 +20,9 @@ ENV LANGUAGE en_US.UTF-8
 
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
+
+# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
+ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
 
 # (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
 # https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670

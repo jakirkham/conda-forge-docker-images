@@ -6,9 +6,6 @@ FROM --platform=linux/${DISTRO_ARCH} ${DISTRO_NAME}:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
-# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
-ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
-
 # Set `ARG`s during build.
 ARG DISTRO_ARCH
 ARG DISTRO_NAME
@@ -23,6 +20,9 @@ ENV LANGUAGE en_US.UTF-8
 
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
+
+# Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
+ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
 # Add the archived repo URL and fix RPM imports
 ADD centos7-repos /tmp/centos7-repos
