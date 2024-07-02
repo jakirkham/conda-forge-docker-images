@@ -16,6 +16,7 @@ ENV DISTRO_ARCH=${DISTRO_ARCH} \
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static

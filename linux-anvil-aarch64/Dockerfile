@@ -18,7 +18,7 @@ ENV DISTRO_ARCH=${DISTRO_ARCH} \
 
 # Set an encoding to make things work smoothly.
 ENV LANG en_US.UTF-8
-ENV LANGUAGE=en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 # bust the docker cache so that we always rerun the installs below
 ADD https://loripsum.net/api /opt/docker/etc/gibberish
