@@ -23,6 +23,8 @@ ADD https://loripsum.net/api /opt/docker/etc/gibberish
 
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-aarch64-static /usr/bin/qemu-aarch64-static
+ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
+ADD qemu-s390x-static /usr/bin/qemu-s390x-static
 
 # (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
 # https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670
@@ -52,7 +54,7 @@ RUN /opt/docker/bin/run_commands
 # Add a file for users to source to activate the `conda`
 # environment `base`. Also add a file that wraps that for
 # use with the `ENTRYPOINT`.
-COPY linux-anvil-aarch64/entrypoint_source /opt/docker/bin/entrypoint_source
+COPY linux-anvil-cos7/entrypoint_source /opt/docker/bin/entrypoint_source
 COPY scripts/entrypoint /opt/docker/bin/entrypoint
 
 # Ensure that all containers start with tini and the user selected process.
