@@ -52,7 +52,7 @@ COPY linux-anvil-cos7-x86_64/entrypoint_source /opt/docker/bin/entrypoint_source
 COPY scripts/entrypoint /opt/docker/bin/entrypoint
 
 # Ensure that all containers start with tini and the user selected process.
-# Activate the `conda` environment `base` and the devtoolset compiler.
+# Activate the `conda` environment `base`.
 # Provide a default command (`bash`), which will start if the user doesn't specify one.
 ENTRYPOINT [ "/opt/conda/bin/tini", "--", "/opt/docker/bin/entrypoint" ]
 CMD [ "/bin/bash" ]
