@@ -25,6 +25,8 @@ docker build --rm --build-arg DISTRO_NAME=centos --build-arg DISTRO_VER=6 --buil
 
 * `CUDA_VER`: This is the cuda & cudatoolkit version that will be used. The
   value of this variable should be in major-minor-patch format, e.g. `11.8.0`.
+* `DISTRO_ARCH`: This is the Linux architecture that the image should use.
+  Should match the upstream Docker image, e.g. `amd64`.
 * `DISTRO_NAME`: This is the Linux distro image name that should be built with.
   Should match the upstream Docker image, e.g. `centos`.
 * `DISTRO_VER`: This is version of Linux distro (typical CentOS) that the image
