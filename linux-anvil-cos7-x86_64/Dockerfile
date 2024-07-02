@@ -1,12 +1,17 @@
+# Set `ARG`s for use in `FROM`.
+ARG DISTRO_ARCH
 ARG DISTRO_NAME
 ARG DISTRO_VER
-FROM ${DISTRO_NAME}:${DISTRO_VER}
+FROM --platform=linux/${DISTRO_ARCH} ${DISTRO_NAME}:${DISTRO_VER}
 
 LABEL maintainer="conda-forge <conda-forge@googlegroups.com>"
 
+# Set `ARG`s during build.
+ARG DISTRO_ARCH
 ARG DISTRO_NAME
 ARG DISTRO_VER
-ENV DISTRO_NAME=${DISTRO_NAME} \
+ENV DISTRO_ARCH=${DISTRO_ARCH} \
+    DISTRO_NAME=${DISTRO_NAME} \
     DISTRO_VER=${DISTRO_VER}
 
 # Set an encoding to make things work smoothly.
