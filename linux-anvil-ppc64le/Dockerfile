@@ -24,6 +24,12 @@ ADD https://loripsum.net/api /opt/docker/etc/gibberish
 # Add qemu in here so that we can use this image on regular linux hosts with qemu user installed
 ADD qemu-ppc64le-static /usr/bin/qemu-ppc64le-static
 
+# (arm64v8/centos:7 only) Fix language override to get a working en_US.UTF-8 locale; backports:
+# https://github.com/CentOS/sig-cloud-instance-build/commit/2892c17fa8a520e58c3f42cd56587863fe675670
+RUN if [ "${DISTRO_ARCH}" = "arm64" ] && [ "${DISTRO_NAME}${DISTRO_VER}" = "centos7" ]; then \
+        sed -i 's/override_install_langs=en_US\.UTF-8/override_install_langs=en_US.utf8/' /etc/yum.conf ; \
+    fi
+
 # Add the archived repo URL and fix RPM imports
 ADD centos7-repos /tmp/centos7-repos
 ADD scripts/fix_rpm /opt/docker/bin/fix_rpm
