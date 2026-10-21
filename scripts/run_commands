@@ -52,12 +52,14 @@ export MAMBA_ROOT_PREFIX=/opt/conda
     patch \
     pip \
     su-exec \
-    pixi \
+    "pixi>=0.82.1" \
     tini \
     mamba \
     conda \
     conda-build \
-    anaconda-client
+    anaconda-client \
+    "certifi>=2026.10.19" \
+    "ca-certificates>=2026.10.19"
 
 # Put micromamba itself in condabin, next to the other tools.
 mkdir -p /opt/conda/condabin
